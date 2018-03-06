@@ -1,13 +1,15 @@
+# @param {Integer[]} nums
+# @return {Void} Do not return anything, modify nums in-place instead.
 def move_zeroes(nums)
-    first = 0
-    second = 0
-    while true
-        second += 1 until nums[second] != 0 || second == nums.length-1
-        first += 1 until nums[first] == 0 || first == nums.length-1
-        nums[first], nums[second] = nums[second], nums[first]
-        break if first >= nums.length-1 || second >= nums.length-1
+    curr = 0
+    nonzero = 0
+    nums.each_with_index do |el, idx|
+        if el != 0
+            nums[idx], nums[nonzero] = nums[nonzero], nums[idx]
+            nonzero += 1
+        end
     end
-    nums
+
 end
 
 p move_zeroes([0, 1, 0, 3, 12])
