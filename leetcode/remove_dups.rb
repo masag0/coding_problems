@@ -1,19 +1,22 @@
+# @param {Integer[]} nums
+# @return {Integer}
 def remove_duplicates(nums)
-    count = 0
+    return 0 if nums.empty?
     i = 0
-    while i < nums.length
-        num = nums[i]
-        j = i
-        until nums[j] != num
-            return nums[0..count] if j > nums.length
-            j += 1
+    (0..nums.length-1).each do |j|
+        if nums[j] != nums[i]
+            i += 1
+            nums[i] = nums[j]
         end
-        nums[i+1], nums[j] = nums[j], nums[i+1]
-        count += 1
-        i = j+1
     end
 
-    nums[0..count]
+    i + 1
 end
 
-remove_duplicates([1,1,2])
+p remove_duplicates([])
+p remove_duplicates([1])
+p remove_duplicates([1, 1])
+p remove_duplicates([1,1,2])
+p remove_duplicates([1,2,3])
+p remove_duplicates([1,2,2])
+p remove_duplicates([1,1,2,2,2,2,3])
