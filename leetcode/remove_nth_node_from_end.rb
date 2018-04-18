@@ -35,4 +35,25 @@ def remove_nth_from_end(head, n)
     end
 
     head
+    # 
+    # curr = head
+    # prev = head
+    #
+    # n.times do
+    #     curr = curr.next
+    # end
+    #
+    # if !curr
+    #     head = head.next
+    #     return head
+    # end
+    #
+    # while curr.next
+    #     curr = curr.next
+    #     prev = prev.next
+    # end
+    #
+    # prev.next = prev.next.next
+    #
+    # head
 end
