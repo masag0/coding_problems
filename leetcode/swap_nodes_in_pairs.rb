@@ -12,28 +12,40 @@
 def swap_pairs(head)
     return head if !head or !head.next
 
-    result = head.next
-    curr = head
-    old = head
+    #Iterative Solution
 
-    first = curr
-    second = curr.next
-    third = curr.next.next
-    second.next = first
-    first.next = third
-    curr = third
-    old = first
+    # result = head.next
+    # curr = head
+    # old = head
+    #
+    # first = curr
+    # second = curr.next
+    # third = curr.next.next
+    # second.next = first
+    # first.next = third
+    # curr = third
+    # old = first
+    #
+    # while curr && curr.next
+    #     first = curr
+    #     second = curr.next
+    #     third = curr.next.next
+    #     second.next = first
+    #     first.next = third
+    #     old.next = second
+    #     curr = third
+    #     old = first
+    # end
+    # old.next = third if third
+    # result
 
-    while curr && curr.next
-        first = curr
-        second = curr.next
-        third = curr.next.next
-        second.next = first
-        first.next = third
-        old.next = second
-        curr = third
-        old = first
-    end
-    old.next = third if third
-    result
+    #Recursive Solution
+   first = head
+   second = head.next
+   third = head.next.next
+   second.next = first
+   first.next = swap_pairs(third)
+
+   second
+
 end
