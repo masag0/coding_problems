@@ -12,7 +12,6 @@ def is_palindrome(s)
     (s.length-1).downto(0).each do |i|
         reversed += s[i].downcase if s[i].downcase =~ /[0-9a-z]/
     end
-    p reversed
-    p string
+    
     reversed == string
 end
